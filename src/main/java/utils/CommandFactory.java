@@ -2,8 +2,6 @@ package utils;
 
 import commands.*;
 
-import java.util.regex.Pattern;
-
 public class CommandFactory {
 
     public static Command getCommand(final String commandLine) {

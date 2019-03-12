@@ -1,6 +1,6 @@
 package commands;
 
-import processors.impl.UnknowQuessionImpl;
+import processors.impl.UnknownQuestionImpl;
 
 public class UnknownCommand extends Command {
 
@@ -15,6 +15,6 @@ public class UnknownCommand extends Command {
     @Override
     public void executeCommand() {
         String commandLine = getCommandLine();
-        new UnknowQuessionImpl().processor(commandLine);
+        new UnknownQuestionImpl().processor(commandLine);
     }
 }

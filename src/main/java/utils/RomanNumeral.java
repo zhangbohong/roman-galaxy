@@ -20,4 +20,12 @@ public enum RomanNumeral {
     }
 
 
+    public static boolean contains(String numeral) {
+        for (RomanNumeral romanNumeral : RomanNumeral.values()) {
+            if (romanNumeral.name().equals(numeral)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

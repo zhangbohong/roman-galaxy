@@ -8,7 +8,6 @@ public abstract class Command {
 
     private String commandLine;
 
-    // TODO remove commandLine parameter
     public abstract void executeCommand();
 
     Command() {

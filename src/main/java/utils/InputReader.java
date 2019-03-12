@@ -17,9 +17,9 @@ public class InputReader {
                 command.executeCommand();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("file is not found");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("IO Error");
         }
     }
 }

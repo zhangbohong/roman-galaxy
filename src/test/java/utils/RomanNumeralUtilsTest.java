@@ -1,5 +1,6 @@
 package utils;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
@@ -29,7 +30,7 @@ public class RomanNumeralUtilsTest {
     @Test
     public void testIsValidRomanNumeral() throws Exception {
         boolean IVX = RomanNumeralUtils.isValidRomanNumeral("IVX");
-        System.out.println(IVX);
+        assert !IVX : "不是合法的罗马数字";
 
     }
 

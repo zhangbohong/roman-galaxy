@@ -21,7 +21,7 @@ public class HowManyQuestionImpl implements IQuestions {
         try {
             romanValue = RomanNumeralUtils.getValueFromRomanStr(romanStr);
         } catch (UnknownSymbolException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         double materialValue = Double.parseDouble(materialMap.get(materialType) + "");
         NumberFormat nf = new DecimalFormat("#.####");

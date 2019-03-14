@@ -27,7 +27,7 @@ public class CreditCommand extends Command {
         try {
             romanValue = RomanNumeralUtils.getValueFromRomanStr(romanStr);
         } catch (UnknownSymbolException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         double value = creditValue / romanValue;
         materialMap.put(materialType.trim(), value);

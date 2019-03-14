@@ -19,7 +19,7 @@ public class HowMuchQuestionsImpl implements IQuestions {
         try {
             romanValue = RomanNumeralUtils.getValueFromRomanStr(romanStr);
         } catch (UnknownSymbolException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         System.out.printf("%s is %d\n", string, romanValue);
     }

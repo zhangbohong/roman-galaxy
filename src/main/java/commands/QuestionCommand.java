@@ -1,7 +1,9 @@
 package commands;
 
+import processors.impl.HowManyMaterialQuestionImpl;
 import processors.impl.HowManyQuestionImpl;
 import processors.impl.HowMuchQuestionsImpl;
+import processors.impl.UnknownQuestionImpl;
 import utils.QuestionTypes;
 
 public class QuestionCommand extends Command {
@@ -21,6 +23,10 @@ public class QuestionCommand extends Command {
             new HowMuchQuestionsImpl().processor(commandLine);
         } else if (commandLine.startsWith(QuestionTypes.HOW_MANY_QUESTION.getQuestionStr())) {
             new HowManyQuestionImpl().processor(commandLine);
+        } else if (commandLine.startsWith(QuestionTypes.HOW_MANY_MATERIAL.getQuestionStr())) {
+            new HowManyMaterialQuestionImpl().processor(commandLine);
+        } else {
+            new UnknownQuestionImpl().processor(commandLine);
         }
     }
 }

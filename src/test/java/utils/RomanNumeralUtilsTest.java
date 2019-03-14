@@ -40,8 +40,9 @@ public class RomanNumeralUtilsTest {
     @Test
     public void testGetValueFromRomanStr() throws Exception {
         int ivx = RomanNumeralUtils.getValueFromRomanStr("CMI");
-        System.out.println(ivx);
-
+//        System.out.println(ivx);
+        String materialType = RomanNumeralUtils.getMaterialType("How many Silver is glob Gold");
+        System.out.println(materialType);
 
     }
 

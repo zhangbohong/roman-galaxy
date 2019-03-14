@@ -61,5 +61,9 @@ public class RomanNumeralUtils {
                 .filter(romanMap::containsKey).collect(Collectors.joining(" "));
     }
 
+    public static List<String> getMaterialTypeList(String commandLine) {
+        return Stream.of(commandLine.split("\\s")).filter(MaterialType::contains).collect(Collectors.toList());
+    }
+
 
 }

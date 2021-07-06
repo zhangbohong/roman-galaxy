@@ -1,4 +1,4 @@
-package utils;
+package constants;
 
 public enum RomanNumeral {
     I(1),
@@ -9,7 +9,7 @@ public enum RomanNumeral {
     D(500),
     M(1000);
 
-    int value;
+    Integer value;
 
     RomanNumeral(int theValue) {
         this.value = theValue;

@@ -1,5 +1,7 @@
 package utils;
 
+import constants.MaterialType;
+import constants.RomanNumeral;
 import exceptions.UnknownSymbolException;
 import org.apache.commons.lang.StringUtils;
 
@@ -24,12 +26,14 @@ public class RomanNumeralUtils {
         if (!isValidRomanNumeral(romanStr)) {
             throw new UnknownSymbolException("Illegal Roman Numbers");
         }
-        List<String> valueList = Stream.of(romanStr.split(""))
-                .map(s -> String.valueOf(RomanNumeral.valueOf(s).getValue())).collect(Collectors.toList());
+        // XLII (-10+50+1+1)
+        // MCMXLIV = 1000 + (1000 − 100) + (50 − 10) + (5 − 1) = 1944
+        // MCMXLIV = 1000 - 100 + 1000 − 10 + 50 − 1 + 5  = 1944
+        List<Integer> valueList = Stream.of(romanStr.split(""))
+                .map(s -> RomanNumeral.valueOf(s).getValue()).collect(Collectors.toList());
         final int[] result = {0};
-        valueList.stream()
-                .flatMapToInt(s -> IntStream.of(Integer.parseInt(s)))
-                .reduce((current, next) -> {
+        Integer lastOne = valueList.stream()
+                .reduce(0, (current, next) -> {
                     if (current >= next) {
                         result[0] += current;
                     } else {
@@ -37,7 +41,8 @@ public class RomanNumeralUtils {
                     }
                     return next;
                 });
-        return result[0] + Integer.parseInt(valueList.get(valueList.size() - 1).trim());
+
+        return result[0] + lastOne;
     }
 
     public static String getMaterialType(String commandLine) {
@@ -48,7 +53,8 @@ public class RomanNumeralUtils {
     public static String getRomanStr(Map<String, Object> romanMap, String commandLine) {
         return Stream.of(commandLine.split("\\s"))
                 .filter(romanMap::containsKey)
-                .map(s -> romanMap.get(s).toString().split("=")[0]).collect(Collectors.joining(""));
+                .map(s -> romanMap.get(s).toString())
+                .collect(Collectors.joining(""));
     }
 
     public static int getCreditValue(String commandLine) {

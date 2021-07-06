@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ReadLineHandler {
 
-    private static ReadLineHandler instance = new ReadLineHandler();
+    private static final ReadLineHandler instance = new ReadLineHandler();
 
     private ReadLineHandler() {
         romanMap = new HashMap<>();

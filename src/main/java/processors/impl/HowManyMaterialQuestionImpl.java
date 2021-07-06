@@ -5,6 +5,7 @@ import handler.ReadLineHandler;
 import processors.IQuestions;
 import utils.RomanNumeralUtils;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
@@ -33,7 +34,9 @@ public class HowManyMaterialQuestionImpl implements IQuestions {
         } catch (UnknownSymbolException e) {
             System.err.println(e.getMessage());
         }
-        double result = romanValue * materialValueResource / materialValueTarget;
+        BigDecimal result = new BigDecimal(romanValue)
+                .multiply(new BigDecimal(materialValueResource))
+                .divide(new BigDecimal(materialValueTarget)) ;
         NumberFormat nf = new DecimalFormat("#.####");
         System.out.printf("%s %s is %s %s ", str, materialTypeList.get(1), nf.format(result), materialTypeList.get(0));
 

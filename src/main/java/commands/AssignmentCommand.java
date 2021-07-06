@@ -1,6 +1,6 @@
 package commands;
 
-import utils.RomanNumeral;
+import constants.RomanNumeral;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -24,7 +24,7 @@ public class AssignmentCommand extends Command {
                 map(s -> s.split("\\sis\\s")).
                 collect(Collectors.toMap(
                         s -> s[0],
-                        s -> s[1] + "=" + RomanNumeral.valueOf(s[1]).getValue())
+                        s -> s[1])
                 );
         romanMap.putAll(map);
     }

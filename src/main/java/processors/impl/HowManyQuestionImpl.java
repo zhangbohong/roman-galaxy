@@ -5,6 +5,7 @@ import handler.ReadLineHandler;
 import processors.IQuestions;
 import utils.RomanNumeralUtils;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Map;
@@ -24,7 +25,8 @@ public class HowManyQuestionImpl implements IQuestions {
             System.err.println(e.getMessage());
         }
         double materialValue = Double.parseDouble(materialMap.get(materialType) + "");
+        BigDecimal result = new BigDecimal(romanValue).multiply(new BigDecimal(materialValue));
         NumberFormat nf = new DecimalFormat("#.####");
-        System.out.printf("%s %s is %s Credits\n", string, materialType, nf.format(romanValue * materialValue));
+        System.out.printf("%s %s is %s Credits\n", string, materialType, nf.format(result));
     }
 }

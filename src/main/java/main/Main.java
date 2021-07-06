@@ -1,8 +1,6 @@
 package main;
 
 import commands.Command;
-import utils.CommandFactory;
-import utils.InputReader;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -3,6 +3,7 @@ package commands;
 import exceptions.UnknownSymbolException;
 import utils.RomanNumeralUtils;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class CreditCommand extends Command {
@@ -29,7 +30,8 @@ public class CreditCommand extends Command {
         } catch (UnknownSymbolException e) {
             System.err.println(e.getMessage());
         }
-        double value = creditValue / romanValue;
+        ;
+        BigDecimal value = new BigDecimal(creditValue).divide(new BigDecimal(romanValue));
         materialMap.put(materialType.trim(), value);
     }
 }

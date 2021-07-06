@@ -1,10 +1,9 @@
 package utils;
 
+import constants.RomanNumeral;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-
-import java.util.Arrays;
 
 /**
  * RomanNumeral Tester.
